@@ -95,6 +95,7 @@ async function runTuiWithRenderer(options: TuiOptions, renderer: CliRenderer): P
         options: {
           ...readyOptions,
           initialThemeMode,
+          exitTui: onExit,
           setTerminalBackgroundColor: (color) => renderer.setBackgroundColor(color),
           subscribeThemeMode: (listener) => {
             themeModeListeners.add(listener);

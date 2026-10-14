@@ -214,6 +214,22 @@ export function createCommandCenter(deps: CommandCenterDeps): TuiSubmitPrompt {
         return attachCurrentSessionMetadata(await app.submitPrompt(prompt, options), deps, app);
       }
 
+      if (command.name === "exit") {
+        if (command.args.length > 0) {
+          return {
+            mode: deps.getMode?.(),
+            response: "Usage: /exit",
+          };
+        }
+        // response 留空：applyResult 会在渲染任何内容前 destroy renderer，
+        // 空串也让 appendAgentResult 的「无占位消息」规则自然生效。
+        return {
+          exit: true,
+          mode: deps.getMode?.(),
+          response: "",
+        };
+      }
+
       if (command.name === "expert") {
         return handleExpertCommand(command.args, deps, options);
       }

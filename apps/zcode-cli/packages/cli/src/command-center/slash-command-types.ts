@@ -117,6 +117,12 @@ export type SlashCommand =
     }
   | {
       args: string;
+      name: "exit";
+      rawName: string;
+      type: "known";
+    }
+  | {
+      args: string;
       rawName: string;
       type: "unknown";
     };

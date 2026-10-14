@@ -16,9 +16,9 @@
     "build:desktop-agent": "node scripts/build.mjs --desktop-agent",
     "build:sea": "pnpm --dir ../../../.. exec turbo --skip-infer --cwd apps/zcode-cli run build --filter=!@zcode/cli --force && pnpm build && node scripts/build-sea.mjs --all",
     "sea": "node scripts/build-sea.mjs",
-    "upload:sea": "node scripts/upload-sea-smb.mjs",
     "clean": "node ../../scripts/clean-dist.mjs",
     "dev": "tsx src/main.ts",
+    "test": "node --import tsx --test \"test/*.test.ts\"",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint src",
     "lint:fix": "oxlint --write src"

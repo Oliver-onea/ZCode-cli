@@ -187,4 +187,15 @@ export const BUILTIN_ZCODE_SLASH_COMMAND_HELP_ENTRIES: readonly BuiltinZCodeSlas
       summary: "Show or set the current session goal.",
       usage: "/goal [pause|resume|clear|replace <objective>|<objective>]",
     },
+    {
+      aliases: ["quit"],
+      details: [
+        "Closes the terminal UI and ends the process with exit code 0.",
+        "Also works while a turn is running and behaves like pressing Ctrl-C twice.",
+        "Only available in the interactive TUI; headless runs report availability instead.",
+      ],
+      name: "exit",
+      summary: "Exit the terminal UI.",
+      usage: "/exit",
+    },
   ] as const;
